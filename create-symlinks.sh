@@ -2,7 +2,7 @@
 
 # Declare an array of key-value pairs in the format "source;destination"
 declare -a MAPPINGS=(
-    "./nixos;./test"
+    "./nixos;/etc/nixos"
 )
 
 # Check if sudo permissions are already valid, otherwise ask for them
