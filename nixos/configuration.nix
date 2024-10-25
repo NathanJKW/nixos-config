@@ -55,25 +55,25 @@
   ### Gnome Desktop Enviroment
   #services.xserver.desktopManager.gnome.enable = true;
   #programs.hyprland.enable = true;
-   services={
-     xserver = {
-       enable = true;
-       xkb = {
-         layout = "gb";
-         variant = "";
-       };
-       displayManager = {
-         gdm = {
-           enable = true;
-           wayland = true;
-         };
-       };
-       desktopManager = {
-         gnome = {
-           enable = true;
-         };
-       };
-     };
+  services={
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "gb";
+        variant = "";
+      };
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
+      };
+      desktopManager = {
+        gnome = {
+          enable = true;
+        };
+      };
+    };
   };
 
   ### Configure console keymap
