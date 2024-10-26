@@ -1,9 +1,0 @@
-mako
-pipewire
-wireplumber
-XDG Desktop Portal
-hyprpolkitagent
-qt5-wayland
-qt6-wayland
-
-https://gitlab.com/Zaney/zaneyos/-/blob/main/hosts/default/home.nix?ref_type=heads
