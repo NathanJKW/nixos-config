@@ -25,4 +25,9 @@ To configure NixOS using the files in this repository, we will create a symbolic
    ls -l /etc/nixos
    ```
 
+4. **Rebuild**
+   ```bash
+   sudo nixos-rebuild switch
+   ```
+
 This setup will ensure that NixOS uses the configuration files stored in your repository.
