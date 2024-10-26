@@ -22,6 +22,7 @@
     ./modules/pkgs/cursor.nix
     ./modules/pkgs/git.nix
     ./modules/pkgs/vscode.nix
+    ./modules/pkgs/onlyOffice.nix
   ];
 
   # Allow unfree packages
@@ -48,11 +49,14 @@
   myModules.cursor.enable = true;
   myModules.vscode.enable = true;
   myModules.git.enable = true;
+  myModules.onlyOffice.enable = true;
 
   # System Packages
   environment.systemPackages = with pkgs; [
     brave
   ];
+  
+  environment.variables.GTK_THEME = "Adwaita:dark";
 
   # System State Version
   system.stateVersion = "24.05";
