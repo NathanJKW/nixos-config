@@ -1,31 +1,35 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./modules/system/boot/systemmd.nix
-      ./modules/system/kernel/linuxKernel_6_10.nix
-      ./modules/system/hardware/nvidiaDriver_555_58_02.nix
-      ./modules/system/hardware/soundPulse.nix
-      ./modules/system/hardware/printerCUPS.nix
-      ./modules/system/services/dockerNvidia.nix
-      ./modules/system/userSettings.nix
-      ./modules/system/networking.nix
-      ./modules/desktop/gnomeDesktop.nix
-      # Packages
-      ./modules/pkgs/cursor.nix
-      ./modules/pkgs/git.nix
-      ./modules/pkgs/vscode.nix
+  imports = [
+    # Core System Configuration
+    ./hardware-configuration.nix
+    ./modules/system/boot/systemmd.nix
+    ./modules/system/kernel/linuxKernel_6_10.nix
+    ./modules/system/hardware/nvidiaDriver_555_58_02.nix
+    ./modules/system/hardware/soundPulse.nix
+    ./modules/system/hardware/printerCUPS.nix
+    ./modules/system/networking.nix
+    ./modules/system/userSettings.nix
 
-    ];
-  
-  # not sure where best to put this....
+    # Services
+    ./modules/system/services/dockerNvidia.nix
+
+    # Desktop Environment
+    ./modules/desktop/gnomeDesktop.nix
+
+    # Packages
+    ./modules/pkgs/cursor.nix
+    ./modules/pkgs/git.nix
+    ./modules/pkgs/vscode.nix
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # Enable/Disable Modules
-  #Core
+
+  ## Core Modules
   myModules.systemmd.enable = true;
   myModules.linuxKernel_6_10.enable = true;
   myModules.nvidiaDriver_555_58_02.enable = true;
@@ -34,35 +38,32 @@
   myModules.networking.enable = true;
   myModules.userSettings.enable = true;
 
-  #Services
+  ## Services
   myModules.dockerNvidia.enable = true;
 
-  # Desktop
+  ## Desktop Environment
   myModules.gnomeDesktop.enable = true;
-  
-  # Packages
+
+  ## Packages
   myModules.cursor.enable = true;
   myModules.vscode.enable = true;
   myModules.git.enable = true;
 
+  # System Packages
   environment.systemPackages = with pkgs; [
-  brave
+    brave
   ];
 
+  # System State Version
+  system.stateVersion = "24.05";
 
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
+  # Example Program Configurations
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
+  # Example Services
   # services.openssh.enable = true;
-
-  system.stateVersion = "24.05";
 }
