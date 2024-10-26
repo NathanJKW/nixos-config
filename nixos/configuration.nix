@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
-let
-  # Define the unstable channel
-  unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-in
+
 {
   imports =
     [
@@ -16,6 +13,7 @@ in
       ./modules/system/userSettings.nix
       ./modules/system/networking.nix
       ./modules/desktop/gnomeDesktop.nix
+      # Packages
       ./modules/pkgs/cursor.nix
       ./modules/pkgs/git.nix
       ./modules/pkgs/vscode.nix
@@ -27,31 +25,28 @@ in
   nixpkgs.config.allowUnfree = true;
   
   # Enable/Disable Modules
+  #Core
   myModules.systemmd.enable = true;
   myModules.linuxKernel_6_10.enable = true;
   myModules.nvidiaDriver_555_58_02.enable = true;
   myModules.soundPulse.enable = true;
   myModules.printerCUPS.enable = true;
-  myModules.dockerNvidia.enable = true;
-  myModules.userSettings.enable = true;
   myModules.networking.enable = true;
+  myModules.userSettings.enable = true;
+
+  #Services
+  myModules.dockerNvidia.enable = true;
+
+  # Desktop
   myModules.gnomeDesktop.enable = true;
   
+  # Packages
   myModules.cursor.enable = true;
   myModules.vscode.enable = true;
   myModules.git.enable = true;
 
-  
-  
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
   brave
-  #vscode
-  unstable.code-cursor
   ];
 
 
