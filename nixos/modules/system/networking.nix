@@ -14,6 +14,10 @@
     networking.hostName = "ziggy"; # Define your hostname.
     networking.networkmanager.enable = true;
     
+    environment.systemPackages = with pkgs; [
+      gnomeExtensions.ip-finder
+    ];
+
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
