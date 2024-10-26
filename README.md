@@ -10,7 +10,13 @@ To configure NixOS using the files in this repository, we will create a symbolic
    ```
 
 2. **Create a Symbolic Link to the Repository Configuration**
+
+**Dont use releative paths**
+
    ```bash
+   # General form
+   sudo ln -s <Repo Folder> </etc/nixos>
+   # Example
    sudo ln -s ~/Documents/nixos-config/nixos/ /etc/nixos
    ```
 
