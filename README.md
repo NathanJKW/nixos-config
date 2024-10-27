@@ -6,6 +6,8 @@ To configure NixOS using the files in this repository, we will create a symbolic
 
 1. **Remove the Default NixOS Configuration Directory**
    ```bash
+   sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+   sudo nix-channel --update unstable
    sudo rm -r /etc/nixos
    ```
 
