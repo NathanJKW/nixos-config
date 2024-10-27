@@ -42,7 +42,7 @@
     users.users.nathan = {
       isNormalUser = true;
       description = "Nathan";
-      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "podman" ];
       packages = with pkgs; [
       #  thunderbird
       ];

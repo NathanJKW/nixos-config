@@ -13,6 +13,7 @@
     virtualisation.docker = {
       enable = true;
       enableOnBoot = true;
+      extraOptions = "--iptables=false --device=/dev/nvidia1";
       package = pkgs.docker_25;
     };
 
