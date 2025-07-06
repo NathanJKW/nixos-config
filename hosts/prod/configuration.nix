@@ -39,4 +39,14 @@
   # Enable automatic upgrades
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
+
+  # Filesystems
+  fileSystems."/" = {
+    device = "/dev/sda1";
+    fsType = "ext4";
+  };
+
+  # Bootloader for VirtualBox
+  boot.loader.grub.enable = true;
+  boot.loader.grub.devices = [ "/dev/sda" ];
 }
